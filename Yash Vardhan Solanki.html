@@ -1,0 +1,452 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Yash Vardhan Solanki</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lab-report sections on graphite. Hero pairs the name with an animated grain lattice. Single dark look by choice. */
+:root {
+  --bg: #121310;
+  --bg-alt: #191b15;
+  --surface: #1d1f18;
+  --line: #34372c;
+  --text: #ece8dd;
+  --text-dim: #9b9a8b;
+  --copper: #c9793f;
+  --copper-bright: #e89a5c;
+  --patina: #6fa88f;
+  --patina-bright: #8fc7ac;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; margin: 0; letter-spacing: -0.01em; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--copper-bright); outline-offset: 3px; }
+
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--copper-bright);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--copper-bright); }
+
+/* nav */
+nav.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: rgba(18, 19, 16, 0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+nav.top .inner { display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; padding-block: 16px; }
+.brand { font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; }
+.brand span { color: var(--copper-bright); }
+nav.top .links { display: flex; gap: 6px clamp(12px, 2vw, 26px); flex-wrap: wrap; }
+nav.top .links a { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; transition: color 0.2s ease; }
+nav.top .links a:hover { color: var(--patina-bright); }
+
+section { padding-block: clamp(48px, 8vw, 100px) 0; }
+section.hero { padding-block: clamp(36px, 7vw, 84px) 0; }
+
+/* hero */
+.hero-inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+h1.name { font-size: clamp(2.4rem, 5.6vw, 4.2rem); font-weight: 700; line-height: 1.04; }
+.role-line { font-family: 'JetBrains Mono', monospace; font-size: clamp(0.82rem, 1.3vw, 0.98rem); color: var(--patina-bright); margin-top: 14px; }
+.thesis { margin: 22px 0 0; max-width: 48ch; color: var(--text-dim); font-size: clamp(0.98rem, 1.3vw, 1.08rem); }
+.thesis strong { color: var(--text); font-weight: 500; }
+.cta-row { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+.btn { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 13px 22px; border-radius: 3px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+.btn.primary { background: var(--copper); color: #17140f; font-weight: 500; }
+.btn.primary:hover { background: var(--copper-bright); transform: translateY(-2px); }
+.btn.ghost { border: 1px solid var(--line); color: var(--text); }
+.btn.ghost:hover { border-color: var(--patina-bright); color: var(--patina-bright); transform: translateY(-2px); }
+.hero-lattice { min-width: 0; }
+.hero-lattice svg { width: 100%; height: auto; display: block; }
+.edge { stroke: url(#edgeGrad); stroke-width: 1.2; fill: none; stroke-dasharray: 6 10; opacity: 0.55; animation: dash 5s linear infinite; }
+.node { fill: var(--copper-bright); opacity: 0.85; animation: pulse 3.2s ease-in-out infinite; }
+.node.alt { fill: var(--patina-bright); }
+@keyframes dash { to { stroke-dashoffset: -160; } }
+@keyframes pulse { 0%, 100% { r: 3.4; opacity: 0.6; } 50% { r: 5.5; opacity: 1; } }
+
+h2.title { font-size: clamp(1.5rem, 2.8vw, 2.2rem); margin-bottom: 34px; }
+
+/* composition */
+.comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+.comp-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.chip { border: 1px solid var(--line); padding: 7px 13px; border-radius: 3px; font-size: 0.85rem; background: var(--surface); transition: border-color 0.2s ease, color 0.2s ease; }
+.chip:hover { border-color: var(--copper-bright); color: var(--copper-bright); }
+.edu { margin-top: 40px; border-top: 1px solid var(--line); padding-top: 22px; display: flex; justify-content: space-between; gap: 12px 32px; flex-wrap: wrap; }
+.edu h3 { font-size: 1.1rem; font-weight: 600; }
+.edu .org { color: var(--text-dim); font-size: 0.9rem; margin-top: 3px; }
+.edu .right { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--patina-bright); text-align: right; line-height: 1.7; }
+
+/* timeline */
+.timeline { border-left: 1px solid var(--line); padding-left: 30px; display: flex; flex-direction: column; gap: 48px; margin-left: 4px; }
+.t-item { position: relative; min-width: 0; }
+.t-item::before { content: ""; position: absolute; left: -35px; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--patina-bright); box-shadow: 0 0 0 4px rgba(111, 168, 143, 0.15); }
+.t-range { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--patina-bright); letter-spacing: 0.06em; text-transform: uppercase; }
+.t-role { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 600; margin-top: 6px; }
+.t-org { color: var(--text-dim); font-size: 0.92rem; margin-top: 2px; }
+.t-points { margin: 14px 0 0; padding-left: 18px; color: var(--text-dim); font-size: 0.93rem; display: flex; flex-direction: column; gap: 7px; max-width: 74ch; }
+.t-points li::marker { color: var(--copper); }
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.tag { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--patina-bright); border: 1px solid rgba(111, 168, 143, 0.35); padding: 3px 8px; border-radius: 3px; }
+
+/* specimens */
+.spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.spec-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 26px; display: flex; flex-direction: column; min-width: 0; transition: border-color 0.25s ease, transform 0.25s ease; }
+.spec-card:hover { border-color: var(--copper); transform: translateY(-4px); }
+.spec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 12px; flex-wrap: wrap; }
+.spec-card h3 { font-size: 1.15rem; line-height: 1.25; }
+.spec-range { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--text-dim); text-transform: uppercase; }
+.spec-range .live { color: var(--patina-bright); }
+.spec-card .tags { margin: 14px 0; }
+.spec-points { margin: 0; padding-left: 18px; color: var(--text-dim); font-size: 0.9rem; display: flex; flex-direction: column; gap: 6px; }
+.spec-points li::marker { color: var(--copper); }
+.spec-links { display: flex; gap: 8px 20px; flex-wrap: wrap; margin-top: auto; padding-top: 18px; }
+.spec-links a { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; color: var(--copper-bright); border-bottom: 1px solid var(--copper); padding-bottom: 2px; }
+.spec-links a:hover { color: var(--patina-bright); border-color: var(--patina-bright); }
+
+/* roles + stats */
+.role-card { padding: 22px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; }
+.role-card:first-child { border-top: 1px solid var(--line); }
+.role-card h3 { font-size: 1.08rem; font-weight: 600; }
+.role-org { color: var(--text-dim); font-size: 0.88rem; margin-top: 4px; }
+.role-detail { color: var(--text-dim); font-size: 0.9rem; margin-top: 8px; max-width: 62ch; }
+.role-range { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--patina-bright); text-transform: uppercase; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 28px; margin-top: 52px; }
+.stat { border-top: 1px solid var(--line); padding-top: 16px; min-width: 0; }
+.stat .value { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--copper-bright); line-height: 1.15; }
+.stat .label { color: var(--text-dim); font-size: 0.85rem; margin-top: 6px; }
+
+/* contact */
+footer.contact { margin-top: clamp(56px, 8vw, 100px); border-top: 1px solid var(--line); background: var(--bg-alt); }
+footer.contact .wrap { padding-block: clamp(44px, 7vw, 76px) 32px; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px 56px; align-items: start; }
+.contact-grid h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); max-width: 18ch; line-height: 1.12; }
+.contact-grid p { color: var(--text-dim); max-width: 42ch; margin: 14px 0 0; }
+.rows { min-width: 0; }
+.row { display: flex; align-items: center; gap: 8px 14px; padding-block: 13px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.row:last-child { border-bottom: 1px solid var(--line); }
+.row .k { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); width: 78px; flex: none; }
+.row .v { flex: 1; min-width: 0; overflow-wrap: anywhere; font-size: 0.93rem; text-decoration: none; }
+.row a.v:hover { color: var(--patina-bright); }
+.copy { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; background: none; color: var(--text); border: 1px solid var(--line); border-radius: 3px; padding: 5px 10px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease; }
+.copy:hover { border-color: var(--copper-bright); color: var(--copper-bright); }
+.foot-note { color: var(--text-dim); font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; margin-top: 44px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: minmax(0, 1fr); }
+  .hero-lattice { order: -1; opacity: 0.7; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .edu .right { text-align: left; }
+}
+@media (max-width: 520px) {
+  .row .k { width: 100%; }
+  .spec-card { padding: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .edge, .node { animation: none !important; }
+  * { transition: none !important; }
+}
+</style>
+
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script>
+(function () {
+  var h = React.createElement;
+  var useState = React.useState;
+
+  var EMAIL = "yvardhansolanki@gmail.com";
+  var PHONE = "+91 63771 90839";
+
+  var EDGES = [
+    [60, 90, 180, 40], [180, 40, 320, 70], [320, 70, 460, 30],
+    [460, 30, 610, 70], [610, 70, 740, 40], [60, 90, 140, 210],
+    [180, 40, 260, 170], [320, 70, 300, 200], [460, 30, 430, 190],
+    [610, 70, 560, 210], [740, 40, 700, 200], [140, 210, 260, 170],
+    [260, 170, 300, 200], [300, 200, 430, 190], [430, 190, 560, 210],
+    [560, 210, 700, 200], [140, 210, 120, 340], [260, 170, 240, 330],
+    [300, 200, 380, 350], [430, 190, 470, 340], [560, 210, 600, 350],
+    [700, 200, 690, 330], [120, 340, 240, 330], [240, 330, 380, 350],
+    [380, 350, 470, 340], [470, 340, 600, 350], [600, 350, 690, 330]
+  ];
+  var seen = {}, NODES = [];
+  EDGES.forEach(function (e) {
+    [[e[0], e[1]], [e[2], e[3]]].forEach(function (p) {
+      var k = p[0] + "," + p[1];
+      if (!seen[k]) { seen[k] = 1; NODES.push(p); }
+    });
+  });
+
+  var SKILLS = [
+    ["PROGRAMMING", ["C++", "Python", "JavaScript", "TypeScript"]],
+    ["WEB DEVELOPMENT", ["HTML", "React", "Next.js", "Node.js", "Express", "MongoDB", "PostgreSQL", "Tailwind CSS"]],
+    ["TOOLS & TECH", ["Agentic AI", "Okta", "IAM", "Web3", "Solidity", "Git"]],
+    ["KEY COURSES", ["Linear Algebra", "Differential Equations", "Calculus", "Blockchain Technology"]],
+    ["CS FUNDAMENTALS", ["DSA", "DBMS", "Operating Systems", "Computer Networks", "OOP"]]
+  ];
+
+  var EXPERIENCE = [
+    {
+      range: "May 2026 to Jul 2026",
+      role: "Advanced Application Engineer Intern",
+      org: "Accenture, Gurugram",
+      points: [
+        "Worked with identity and access management (IAM) teams to streamline enterprise security workflows, cutting manual application provisioning time by 90%.",
+        "Led the build of an agentic AI solution on Okta, written in Python with SAML and OIDC, that automated 15+ application integrations.",
+        "Designed AI-driven agents for access protocols, replacing repetitive manual configuration."
+      ],
+      tags: ["Agentic AI", "Okta", "IAM", "SAML", "OIDC", "Python"]
+    },
+    {
+      range: "May 2025 to Jul 2025",
+      role: "Software Developer Intern",
+      org: "Charak Center for Digital Healthcare, DRISHTI CPS Foundation, IIT Indore",
+      points: [
+        "Built an offline-first data capture system with IndexedDB and React, shaped by clinician feedback, for documenting 50+ patient interactions a day.",
+        "Wrote background sync that detects when the connection returns and pushes locally stored edits.",
+        "Added an upload path with a local storage fallback so field data is kept when the network drops."
+      ],
+      tags: ["React", "IndexedDB", "Offline sync"]
+    }
+  ];
+
+  var PROJECTS = [
+    {
+      name: "Decentralized Auction Platform",
+      range: "Mar 2025 to May 2025",
+      stack: ["Solidity", "Next.js", "Web3.js", "Tailwind CSS"],
+      points: [
+        "Ethereum smart contracts that handle bidding, escrow and settlement.",
+        "MetaMask-connected frontend that matches on-chain actions with off-chain metadata through REST APIs."
+      ],
+      links: [["Code", "https://github.com/yashvardhan2006/Decentralized-Auction-Platform"]]
+    },
+    {
+      name: "Real-Time Chat Application",
+      range: "Jul 2024 to Sep 2024",
+      stack: ["React.js", "Node.js", "Express.js", "Socket.io", "MongoDB", "JWT"],
+      points: [
+        "Full-stack chat with private messaging, live user presence and JWT-based authentication.",
+        "Two-way messaging over Socket.io, backed by secured REST APIs and MongoDB."
+      ],
+      links: [["Live app", "https://chat-app-yash-vardhan.onrender.com"], ["Code", "https://github.com/yashvardhan2006/Chat-app"]]
+    },
+    {
+      name: "Heusler Alloy Discovery with ML",
+      range: "B.Tech project",
+      live: "In progress",
+      stack: ["Machine learning", "Materials science", "Python"],
+      points: [
+        "Using machine learning to identify new medium and high entropy alloys that form half and full Heusler phases.",
+        "Brings my materials coursework and software work into one project."
+      ],
+      links: []
+    }
+  ];
+
+  var ROLES = [
+    {
+      title: "Head, Web Development Team",
+      org: "Students' Gymkhana and E-Summit, IIT Indore",
+      range: "Mar 2025 to present",
+      detail: "Mentor and manage the team that built the official E-Summit website, which handled registrations for 1000+ participants."
+    },
+    {
+      title: "Member, Web Development",
+      org: "Google Developer Student Club (GDSC) and Alumni Cell, IIT Indore",
+      range: "",
+      detail: ""
+    }
+  ];
+
+  var STATS = [
+    ["7.91", "CGPA, B.Tech at IIT Indore"],
+    ["AIR 14,044", "JEE Advanced 2023, out of 200,000+ candidates (GEN-EWS rank 2,014)"],
+    ["National semifinalist", "Flipkart GRiD 8.0, Software Development track"],
+    ["300+", "LeetCode problems solved"],
+    ["1000+", "Registrations handled by the E-Summit website"]
+  ];
+
+  var NAV = [["composition", "Composition"], ["history", "Thermal History"], ["specimens", "Specimen Log"], ["roles", "Load-Bearing Roles"], ["contact", "Contact"]];
+
+  function Tags(props) {
+    return h("div", { className: "tags" }, props.items.map(function (t) { return h("span", { className: "tag", key: t }, t); }));
+  }
+
+  function Copy(props) {
+    var s = useState("Copy"), label = s[0], setLabel = s[1];
+    function done(t) { setLabel(t); setTimeout(function () { setLabel("Copy"); }, 1600); }
+    function fallback() {
+      try {
+        var el = document.getElementById(props.target);
+        var r = document.createRange(); r.selectNodeContents(el);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        done("Selected");
+      } catch (e) { done("Select it"); }
+    }
+    function onClick() {
+      try { navigator.clipboard.writeText(props.value).then(function () { done("Copied"); }, fallback); }
+      catch (e) { fallback(); }
+    }
+    return h("button", { type: "button", className: "copy", onClick: onClick, "aria-label": "Copy " + props.name }, label);
+  }
+
+  function ExtRow(props) {
+    return h("div", { className: "row" },
+      h("span", { className: "k" }, props.k),
+      h("a", { className: "v", href: props.href, target: "_blank", rel: "noreferrer noopener" }, props.text));
+  }
+
+  function App() {
+    return h("div", null,
+      h("nav", { className: "top", "aria-label": "Sections" },
+        h("div", { className: "wrap" },
+          h("div", { className: "inner" },
+            h("a", { className: "brand", href: "#hero" }, "yash vardhan ", h("span", null, "solanki")),
+            h("div", { className: "links" }, NAV.map(function (n) { return h("a", { key: n[0], href: "#" + n[0] }, n[1]); }))))),
+
+      h("div", { className: "wrap" },
+        h("section", { className: "hero", id: "hero" },
+          h("div", { className: "hero-inner" },
+            h("div", null,
+              h("div", { className: "eyebrow" }, "Grain Structure"),
+              h("h1", { className: "name" }, "Yash Vardhan", h("br"), "Solanki"),
+              h("div", { className: "role-line" }, "metallurgical engineering, IIT Indore, building software alongside"),
+              h("p", { className: "thesis" },
+                "I was trained to read how structure decides what a material can bear. I bring the same habit to software: how the parts join decides whether the system holds. Most recently I built an Okta agent at Accenture that ",
+                h("strong", null, "automated 15+ application integrations"), "."),
+              h("div", { className: "cta-row" },
+                h("a", { className: "btn primary", href: "#specimens" }, "View work"),
+                h("a", { className: "btn ghost", href: "#contact" }, "Get in touch"))),
+            h("div", { className: "hero-lattice" },
+              h("svg", { viewBox: "0 0 800 400", xmlns: "http://www.w3.org/2000/svg", role: "img", "aria-label": "Animated lattice of connected nodes" },
+                h("defs", null,
+                  h("linearGradient", { id: "edgeGrad", x1: "0", y1: "0", x2: "1", y2: "1" },
+                    h("stop", { offset: "0%", stopColor: "#c9793f" }),
+                    h("stop", { offset: "100%", stopColor: "#6fa88f" }))),
+                EDGES.map(function (e, i) {
+                  return h("line", { key: "e" + i, className: "edge", x1: e[0], y1: e[1], x2: e[2], y2: e[3], style: { animationDelay: (i % 7) * 0.4 + "s" } });
+                }),
+                NODES.map(function (n, i) {
+                  return h("circle", { key: "n" + i, className: "node" + (i % 3 === 0 ? " alt" : ""), cx: n[0], cy: n[1], r: 4, style: { animationDelay: (i % 5) * 0.5 + "s" } });
+                }))))),
+
+        h("section", { id: "composition" },
+          h("div", { className: "eyebrow" }, "Composition"),
+          h("h2", { className: "title" }, "What it's made of"),
+          h("div", { className: "comp-grid" },
+            SKILLS.map(function (g) {
+              return h("div", { key: g[0] },
+                h("div", { className: "comp-label" }, g[0]),
+                h("div", { className: "chips" }, g[1].map(function (c) { return h("span", { className: "chip", key: c }, c); })));
+            })),
+          h("div", { className: "edu" },
+            h("div", null,
+              h("h3", null, "B.Tech in Metallurgical Engineering and Materials Science"),
+              h("div", { className: "org" }, "Indian Institute of Technology Indore")),
+            h("div", { className: "right" }, h("div", null, "2023 to present"), h("div", null, "CGPA 7.91")))),
+
+        h("section", { id: "history" },
+          h("div", { className: "eyebrow" }, "Thermal History"),
+          h("h2", { className: "title" }, "Where the shaping happened"),
+          h("div", { className: "timeline" },
+            EXPERIENCE.map(function (j) {
+              return h("div", { className: "t-item", key: j.role },
+                h("div", { className: "t-range" }, j.range),
+                h("div", { className: "t-role" }, j.role),
+                h("div", { className: "t-org" }, j.org),
+                h("ul", { className: "t-points" }, j.points.map(function (p, i) { return h("li", { key: i }, p); })),
+                h(Tags, { items: j.tags }));
+            }))),
+
+        h("section", { id: "specimens" },
+          h("div", { className: "eyebrow" }, "Specimen Log"),
+          h("h2", { className: "title" }, "Things I've built and tested"),
+          h("div", { className: "spec-grid" },
+            PROJECTS.map(function (p) {
+              return h("div", { className: "spec-card", key: p.name },
+                h("div", { className: "spec-head" },
+                  h("h3", null, p.name),
+                  h("span", { className: "spec-range" }, p.range, p.live ? h("span", { className: "live" }, " · " + p.live) : null)),
+                h(Tags, { items: p.stack }),
+                h("ul", { className: "spec-points" }, p.points.map(function (t, i) { return h("li", { key: i }, t); })),
+                p.links.length ? h("div", { className: "spec-links" },
+                  p.links.map(function (l) { return h("a", { key: l[0], href: l[1], target: "_blank", rel: "noreferrer noopener" }, l[0]); })) : null);
+            }))),
+
+        h("section", { id: "roles" },
+          h("div", { className: "eyebrow" }, "Load-Bearing Roles"),
+          h("h2", { className: "title" }, "Where I carry weight"),
+          h("div", null,
+            ROLES.map(function (r) {
+              return h("div", { className: "role-card", key: r.title },
+                h("div", { style: { minWidth: 0 } },
+                  h("h3", null, r.title),
+                  h("div", { className: "role-org" }, r.org),
+                  r.detail ? h("div", { className: "role-detail" }, r.detail) : null),
+                r.range ? h("div", { className: "role-range" }, r.range) : null);
+            })),
+          h("div", { className: "stats-grid" },
+            STATS.map(function (s) {
+              return h("div", { className: "stat", key: s[1] },
+                h("div", { className: "value" }, s[0]),
+                h("div", { className: "label" }, s[1]));
+            })))),
+
+      h("footer", { className: "contact", id: "contact" },
+        h("div", { className: "wrap" },
+          h("div", { className: "eyebrow" }, "Contact"),
+          h("div", { className: "contact-grid" },
+            h("div", null,
+              h("h2", null, "Open to SDE and full-stack roles."),
+              h("p", null, "Email is the fastest way to reach me. I also post my code on GitHub and my practice on LeetCode.")),
+            h("div", { className: "rows" },
+              h("div", { className: "row" },
+                h("span", { className: "k" }, "Email"),
+                h("span", { className: "v", id: "v-email" }, EMAIL),
+                h(Copy, { target: "v-email", value: EMAIL, name: "email address" })),
+              h("div", { className: "row" },
+                h("span", { className: "k" }, "Phone"),
+                h("span", { className: "v", id: "v-phone" }, PHONE),
+                h(Copy, { target: "v-phone", value: PHONE, name: "phone number" })),
+              h(ExtRow, { k: "GitHub", href: "https://github.com/yashvardhan2006", text: "github.com/yashvardhan2006" }),
+              h(ExtRow, { k: "LinkedIn", href: "https://linkedin.com/in/yash-vardhan-solanki", text: "linkedin.com/in/yash-vardhan-solanki" }),
+              h(ExtRow, { k: "LeetCode", href: "https://leetcode.com/u/yvardhansolanki", text: "leetcode.com/u/yvardhansolanki" }))),
+          h("div", { className: "foot-note" }, "B.Tech · Metallurgical Engineering and Materials Science · IIT Indore"))));
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+})();
+</script>
+
+</body></html>
